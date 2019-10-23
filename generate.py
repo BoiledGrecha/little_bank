@@ -5,7 +5,8 @@ data = {"001" : 100,
 		"100" : 5,
 		"150" : 500,
 		"300" : 1000,
-		"666" : 100000}
+		"666" : 100000,
+		"limit" : None}
 
 with open("data_money", "wb") as fd:
 	pickle.dump(data, fd)
