@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import pickle
-from time import sleep
+# from time import sleep
 
 while True:
 	with open("data_money", "rb") as fd:
