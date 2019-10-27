@@ -50,7 +50,6 @@ while True:
 				pickle.dump(data, fd)
 			with open("log.txt", "w") as fd:
 				fd.write(ctime() + "    " + user_id + "  ---->   " + user_input2 + "          " + str(user_input3))
-				# дописать добавление даты и времени вначале
 			print("___________________\nУспешно\n___________________\n")
 		elif user_input == "3":
 			exit()
