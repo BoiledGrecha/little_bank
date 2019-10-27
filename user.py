@@ -1,5 +1,5 @@
 import pickle
-from time import sleep
+from time import sleep, ctime
 
 while True:
 	user_id = input("Введите номер счета\n")
@@ -14,7 +14,7 @@ while True:
 		with open("data_money", "rb") as fd:
 			data = pickle.load(fd)
 		print("Ваш баланс = " + str(data[user_id]) + '\n')
-		user_input = input("Что хотите сделать?\n1 - Перевести на другой счёт\n2 - Обновить данные\n")
+		user_input = input("Что хотите сделать?\n1 - Перевести на другой счёт\n2 - Обновить данные\n3 - Выйти\n")
 		if user_input == "2":
 			sleep(0.5)
 			continue
@@ -49,11 +49,11 @@ while True:
 			with open("data_money", "wb") as fd:
 				pickle.dump(data, fd)
 			with open("log.txt", "w") as fd:
-				fd.write(user_id + "  ---->   " + user_input2 + "          " + user_input3)
-
-
-			# ввести номер на который кинуть, потом сколько скинуть
-			# сверить что не превысит, иначе вернуть
+				fd.write(ctime() + "    " + user_id + "  ---->   " + user_input2 + "          " + str(user_input3))
+				# дописать добавление даты и времени вначале
+			print("___________________\nУспешно\n___________________\n")
+		elif user_input == "3":
+			exit()
 		else:
 			print("________________________\nНеверный ввод\n________________________\n")
 			sleep(1.5)
