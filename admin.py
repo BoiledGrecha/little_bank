@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import pickle
-# from time import sleep
 
 while True:
 	with open("data_money", "rb") as fd:
@@ -19,7 +18,7 @@ while True:
 			user_input3 = int(input("Введите положительное целое число, если хотите увеличить баланс.\nИли отрицательное целое, если уменьшить\n"))
 		except:
 			print("_______________________\nНужно было только число\n________________________")
-		if user_input2 in data:
+		if user_input2 in data and user_input2 != "limit":
 			data[user_input2] += user_input3
 			with open("data_money", "wb") as fd:
 				pickle.dump(data, fd)
@@ -30,6 +29,8 @@ while True:
 Если хотите убрать лимит, введите \'no\' \n""")
 		if user_input2.lower() in ["no", "n"]:
 			data["limit"] = None
+			with open("data_money", "wb") as fd:
+				pickle.dump(data, fd)
 		else:
 			try:
 				user_input2 = int(user_input2)

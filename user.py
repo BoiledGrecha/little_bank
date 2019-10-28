@@ -5,7 +5,7 @@ while True:
 	user_id = input("Введите номер счета\n")
 	with open("data_money", "rb") as fd:
 		data = pickle.load(fd)
-	if user_id not in data:
+	if user_id not in data or user_id == "limit":
 		print("_____________________\nНеправильный номер\n_____________________\n")
 		sleep(3)
 		continue
@@ -20,7 +20,7 @@ while True:
 			continue
 		elif user_input == "1":
 			user_input2 = input("Введите номер счета на который отправить деньги\n")
-			if user_input2 not in data or user_id == user_input2:
+			if user_input2 not in data or user_id == user_input2 or user_input2 == "limit":
 				print("_____________________\nНесуществующий номер счёта или свой\n_____________________\n")
 				sleep(2)
 				continue
@@ -56,5 +56,3 @@ while True:
 		else:
 			print("________________________\nНеверный ввод\n________________________\n")
 			sleep(1.5)
-
-
